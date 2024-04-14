@@ -31,10 +31,10 @@ class Rectangle:
 
     def intersects(self, other):
 
-        if self.x > other.x + other.w or self.x + self.w < other.x:
+        if self.x >= other.x2 or self.x2 <= other.x:
             return False
 
-        if self.y > other.y + other.h or self.y + self.h < other.y:
+        if self.y >= other.y2 or self.y2 <= other.y:
             return False
 
         return True

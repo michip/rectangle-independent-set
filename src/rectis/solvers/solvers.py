@@ -64,7 +64,7 @@ def execute_gurobi(rectangles: List[Rectangle],
 def run_solver(solver: str, rectangles: List[Rectangle], timeout: int = 900):
     intersections = list(intersection_sweep_line(rectangles))
 
-    if solver == "cp_sat":
+    if solver == "cp-sat":
         return execute_cp_sat(rectangles, intersections, timeout)
     elif solver == "ip":
         return execute_gurobi(rectangles, intersections, timeout)

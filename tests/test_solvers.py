@@ -31,10 +31,10 @@ def test_timeout():
     rectangles = read_instance(path)
     intersections = intersection_sweep_line(rectangles)
 
-    timeout = 2
+    timeout = 1
 
     cp_sat_solution = execute_cp_sat(rectangles, intersections, timeout=timeout)
     gurobi_solution = execute_gurobi(rectangles, intersections, timeout=timeout)
 
-    assert np.isclose(gurobi_solution.elapsed_time, timeout, atol=1)
-    assert np.isclose(cp_sat_solution.elapsed_time, timeout, atol=1)
+    assert np.isclose(gurobi_solution.elapsed_time, timeout, atol=1), gurobi_solution.elapsed_time
+    assert np.isclose(cp_sat_solution.elapsed_time, timeout, atol=1), cp_sat_solution.elapsed_time
