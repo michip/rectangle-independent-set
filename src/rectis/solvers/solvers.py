@@ -22,7 +22,6 @@ def execute_cp_sat(rectangles: List[Rectangle],
 
     solver = cp_model.CpSolver()
     solver.parameters.log_search_progress = True
-    solver.log_callback = print  # (str)->None
     solver.parameters.max_time_in_seconds = timeout
 
     status = solver.Solve(model)
